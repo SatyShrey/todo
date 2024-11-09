@@ -22,7 +22,7 @@ mongoClient.connect(conStr).then(clientObject => {
     })
 
     app.get('/notes/:id',(req,res)=>{
-        database.collection('notes').find({email:req.body.id}).toArray().then(notes=>{
+        database.collection('notes').find({email:req.params.id}).toArray().then(notes=>{
             res.send(notes)
             res.end()
         })
