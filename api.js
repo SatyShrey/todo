@@ -2,7 +2,7 @@
 import express, { urlencoded, json } from "express"
 const app=express()
 import cors from "cors"
-app.use(cors())
+app.use(cors({origin:["https://satyaatweb3todo.netlify.app","http://localhost:5173"]}))
 app.use(urlencoded({extended:true}))
 app.use(json())
 
