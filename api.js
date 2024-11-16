@@ -1,5 +1,4 @@
 
-
 import express, { urlencoded, json } from "express"
 const app=express()
 import cors from "cors"
