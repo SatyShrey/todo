@@ -2,7 +2,7 @@
 import express, { urlencoded, json } from "express"
 const app=express()
 import cors from "cors"
-app.use(cors())
+app.use(cors({origin:["https://satyaatweb3todo.netlify.app","http://localhost:5173"]}))
 app.use(urlencoded({extended:true}))
 app.use(json())
 
@@ -12,7 +12,8 @@ let conStr='mongodb+srv://sndsatya:QtAy7QbfwCnzUhvu@clustersnd.adfao0n.mongodb.n
 mongoClient.connect(conStr).then(clientObject => {
     const database=clientObject.db('todo');
     app.get('/', (req, res) => {
-        res.send('Welcome to To-Do API 6060.')
+        res.send('Welcome to To-Do API 6060.');
+        res.end();
     })
 
     app.post('/add', (req, res) => {
