@@ -28,10 +28,11 @@ mongoClient.connect(conStr).then(clientObject => {
         })
     })
 
-    app.delete('/remove/:id', (req, res) => {
+    app.delete('/remove/:id/:email', (req, res) => {
         var id = req.params.id;
-        database.collection('notes').deleteOne({ id: id });
-        res.end();
+        var email=req.params.email
+        database.collection('notes').deleteOne({ id: id,email:email });
+        res.send("Deleted")
     })
 
 })
